@@ -1,0 +1,137 @@
+.e-editor {
+    height: calc(100vh - 95px);
+    border: 2px solid var(--color-primary-container);
+    border-bottom: none;
+    width: 1440px;
+    max-width: calc(100% - 32px);
+    border-radius: 16px 16px 0 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: 750px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.e-input {
+    border-radius: 14px 0 0 14px;
+    padding: 16px;
+    background-color: #f1f8e9;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 750px) {
+        border-radius: 14px 14px 0 0;
+    }
+
+    > textarea {
+        flex: 1;
+        width: 100%;
+        resize: none;
+        font-size: 16px;
+        font-family: 'DM Mono', monospace;
+        outline: none;
+        border: none;
+        height: 100%;
+    }
+
+    > iframe {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        max-height: calc(100vh - 187px);
+        overflow: auto;
+    }
+
+    > pre {
+        flex: 1;
+        height: 100%;
+        width: 100%;
+        white-space: pre-wrap;
+        max-height: calc(100vh - 187px);
+        overflow: auto;
+
+        > code {
+            max-height: calc(100vh - 187px);
+            overflow: auto;
+        }
+    }
+}
+
+.e-output {
+    border-radius: 0 14px 14px 0;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+
+    > iframe {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        max-height: calc(100vh - 187px);
+        overflow: auto;
+    }
+
+    > pre {
+        flex: 1;
+        height: 100%;
+        width: 100%;
+        white-space: pre-wrap;
+        max-height: calc(100vh - 187px);
+        overflow: auto;
+
+        > code {
+            max-height: calc(100vh - 187px);
+            overflow: auto;
+        }
+    }
+}
+
+.e-tabbar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid var(--color-outline);
+    border-radius: 99999px;
+    width: fit-content;
+    margin-bottom: 16px;
+
+    @media (max-width: 750px) {
+        grid-template-columns: repeat(4, 1fr);
+        overflow: auto;
+        max-width: calc(100vw - 68px);
+    }
+
+    > button {
+        min-width: 132px;
+        padding: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        justify-content: center;
+        font-size: 14px;
+        min-height: 40px;
+        max-height: 40px;
+        transition: all .25s;
+        border-right: 1px solid var(--color-outline);
+
+        &:first-of-type {
+            border-radius: 9999px 0 0 9999px;
+        }
+
+        &:last-of-type {
+            border-radius: 0 9999px 9999px 0;
+            border-right: none;
+        }
+
+        &:is(:hover, [data-selected]) {
+            background-color: var(--color-primary-container);
+            color: var(--color-on-primary-container);
+        }
+    }
+}
